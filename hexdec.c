@@ -78,7 +78,7 @@ int write_unsgnd(int is_negative, int i, char buffer[],
 			buffer[x] = pad;
 		buffer[i] = '\0';
 		if (flags & F_MINUS)
-			return (write(1, &buffer[ind], length) + write(1, &buffer[0], x));
+			return (write(1, &buffer[i], length) + write(1, &buffer[0], x));
 		else
 			return (write(1, &buffer[0], i) + write(1, &buffer[i], length));
 	}
