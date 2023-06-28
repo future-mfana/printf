@@ -20,10 +20,10 @@ int get_flags(const char *format, int *i)
 		for (a = 0; FLAGS_CH[a] != '\0'; a++)
 			if (format[curr_arg] == FLAGS_CH[a])
 			{
-				flags /= FLAGS_ARR[a];
+				flags |= FLAGS_ARR[a];
 				break;
 			}
-		if (FLAGS_CH[a] == 0)
+		if (FLAGS_CH[a] == '\0')
 			break;
 	}
 

@@ -51,23 +51,23 @@ long int convert_size_unsgnd(unsigned long int num, int size)
  * Return: written chars
  */
 
-int write_unsgnd(int is_negative, int ind, char buffer[],
+int write_unsgnd(int is_negative, int i, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	int length = BUFF_SIZE - ind - 1, i = 0;
+	int length = BUFF_SIZE - i - 1, x = 0;
 	char pad = ' ';
 
 	UNUSED(is_negative);
 	UNUSED(size);
 
-	if ((precision == 0) && (ind == BUFF_SIZE - 2) && buffer[ind] == '0')
+	if ((precision == 0) && (i == BUFF_SIZE - 2) && buffer[i] == '0')
 		return (0);
 	if ((precision > 0) && (precision < length))
 		pad = ' ';
 
 	while (precision > length)
 	{
-		buffer[--ind] = '0';
+		buffer[--i] = '0';
 		length++;
 	}
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
@@ -75,12 +75,12 @@ int write_unsgnd(int is_negative, int ind, char buffer[],
 	if (width > length)
 	{
 		for (i = 0; i < width - length; i++)
-			buffer[i] = pad;
+			buffer[x] = pad;
 		buffer[i] = '\0';
 		if (flags & F_MINUS)
-			return (write(1, &buffer[ind], length) + write(1, &buffer[0], i));
+			return (write(1, &buffer[ind], length) + write(1, &buffer[0], x));
 		else
-			return (write(1, &buffer[0], i) + write(1, &buffer[ind], length));
+			return (write(1, &buffer[0], i) + write(1, &buffer[i], length));
 	}
-	return (write(1, &buffer[ind], length));
+	return (write(1, &buffer[i], length));
 }
