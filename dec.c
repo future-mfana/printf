@@ -65,9 +65,9 @@ int write_number(int is_negative, int i, char buffer[],
 	UNUSED(size);
 
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
-		pad = 0;
+		pad = '0';
 	if (is_negative)
-		extra_ch = '_';
+		extra_ch = '-';
 	else if (flags & F_PLUS)
 		extra_ch = '+';
 	else if (flags & F_SPACE)
