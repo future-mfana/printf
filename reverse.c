@@ -5,13 +5,13 @@
 /**
  * print_reverse - prints reversed str
  * @types: arg list
- * @buffer: buffer array
- * @flags: active flags
- * @width: width
- * @precision: precision specifier
- * @size: size specifier
+ * @buffer: array
+ * @flags: flags
+ * @width: field width
+ * @precision: precision
+ * @size: size modifier
  *
- * Return: number of chars
+ * Return: number of chars printed
  */
 
 int print_reverse(va_list types, char buffer[], int flags,

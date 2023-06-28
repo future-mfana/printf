@@ -5,13 +5,13 @@
 /**
  * print_rot13string - prints a str in rot13
  * @types: list of args
- * @buffer: buffer of array
- * @flags: active flags
- * @width: width
- * @precision: precision specifier
- * @size: size specifier
+ * @buffer: array
+ * @flags: flags
+ * @width: field width
+ * @precision: precision
+ * @size: size modifier
  *
- * Return: number of chars
+ * Return: number of chars printed
  */
 
 int print_rot13string(va_list types, char buffer[], int flags,

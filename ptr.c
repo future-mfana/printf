@@ -3,13 +3,13 @@
 /**
  * print_pointer - Prints address of an arg in memory
  * @types: type of args
- * @buffer: char array
- * @flags: active flags
- * @width: width specifier
- * @precision: Precision specifier
- * @size: size specifier
+ * @buffer: array
+ * @flags: flags
+ * @width: field width
+ * @precision: precision
+ * @size: size modifier
  *
- *Return: printed chars
+ *Return: num of printed chars
  */
 
 int print_pointer(va_list types, char buffer[],
@@ -59,10 +59,10 @@ int print_pointer(va_list types, char buffer[],
 /**
  * write_pointer - writes a memory address
  * @buffer: char array
- * @ind: starting buffer index
+ * @x: starting buffer index
  * @length: length of nummber
- * @width: width specifier
- * @flags: active flags
+ * @width: field width
+ * @flags: flags
  * @pad: char padding
  * @extra_c: extra char
  * @pad_start: starting padding index
@@ -70,32 +70,32 @@ int print_pointer(va_list types, char buffer[],
  * Return: number of written chars
  */
 
-int write_pointer(char buffer[], int ind, int length,
+int write_pointer(char buffer[], int i, int length,
 		int width, int flags, char pad, char extra_c, int pad_start)
 {
-	int i;
+	int x;
 
 	if (width > length)
 	{
-		for (i = 3; i < width - length + 3; i++)
-			buffer[i] = pad;
-		buffer[i] = '\0';
+		for (x = 3; i < width - length + 3; x++)
+			buffer[x] = pad;
+		buffer[x] = '\0';
 
 		if (flags & F_MINUS && pad == ' ')
 		{
-			buffer[--ind] = 'x';
-			buffer[--ind] = '0';
+			buffer[--i] = 'x';
+			buffer[--i] = '0';
 			if (extra_c)
-				buffer[--ind] = extra_c;
-			return (write(1, &buffer[ind], length) + write(1, &buffer[3], i - 3));
+				buffer[--i] = extra_c;
+			return (write(1, &buffer[i], length) + write(1, &buffer[3], i - 3));
 		}
 		else if (!(flags & F_MINUS) && pad == '0')
 		{
-			buffer[--ind] = 'x';
-			buffer[--ind] = '0';
+			buffer[--i] = 'x';
+			buffer[--i] = '0';
 			if (extra_c)
-				buffer[--ind] = extra_c;
-			return (write(1, &buffer[3], i - 3) + write(1, &buffer[ind], length));
+				buffer[--i] = extra_c;
+			return (write(1, &buffer[3], i - 3) + write(1, &buffer[i], length));
 		}
 		else if (!(flags & F_MINUS) && pad == '0')
 		{
@@ -103,13 +103,13 @@ int write_pointer(char buffer[], int ind, int length,
 				buffer[--pad_start] = extra_c;
 			buffer[1] = '0';
 			buffer[2] = 'x';
-			return (write(1, &buffer[pad_start], i - pad_start) +
-					write(1, &buffer[ind], length - (1 - pad_start) - 2));
+			return (write(1, &buffer[pad_start], x - pad_start) +
+					write(1, &buffer[i], length - (1 - pad_start) - 2));
 		}
 	}
-	buffer[--ind] = 'x';
-	buffer[--ind] = '0';
+	buffer[--i] = 'x';
+	buffer[--i] = '0';
 	if (extra_c)
-		buffer[--ind] = extra_c;
-	return (write(1, &buffer[ind], BUFF_SIZE - ind - 1));
+		buffer[--i] = extra_c;
+	return (write(1, &buffer[i], BUFF_SIZE - i - 1));
 }

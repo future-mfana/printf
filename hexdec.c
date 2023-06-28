@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * print_hexadecimal - prints an unsigned hexadecimal
+ * print_hexadecimal - prints an unsigned hexadecimal num
  * @types: arg list
  * @buffer: array
- * @flags: active flags
- * @width: width specifier
- * @precision: precision specifier
- * @size: size specifier
+ * @flags: flags
+ * @width: field width
+ * @precision: precision
+ * @size: size modifier
  *
- * Return: printed chars
+ * Return: num of printed chars
  */
 
 int print_hexadecimal(va_list types, char buffer[],
@@ -23,7 +23,7 @@ int print_hexadecimal(va_list types, char buffer[],
 /**
  * convert_size_unsgnd - converts number to a specified size
  * @num: number
- * @size: size
+ * @size: size modifier
  *
  * Return: converted num
  */
@@ -41,14 +41,14 @@ long int convert_size_unsgnd(unsigned long int num, int size)
 /**
  * write_unsgnd - Writes an unsigned number
  * @is_negative: negative number
- * @ind: starting index
- * @buffer: char array
- * @flags: active flags
- * @width: Width specifier
- * @precision: precision specifier
- * @size: size specifier
+ * @i: array index
+ * @buffer: array
+ * @flags: flags
+ * @width: field width
+ * @precision: precision
+ * @size: size modifier
  *
- * Return: written chars
+ * Return: num of written chars
  */
 
 int write_unsgnd(int is_negative, int i, char buffer[],

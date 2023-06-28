@@ -5,12 +5,12 @@
  * print_int - prints int
  * @types: arg list
  * @buffer: array
- * @flags: active flags
- * @width: width
+ * @flags: flags
+ * @width: field width
  * @precision: precision
  * @size: size modifier
  *
- * Return: printed chars
+ * Return: num of printed chars
  */
 
 int print_int(va_list types, char buffer[],
@@ -46,11 +46,11 @@ int print_int(va_list types, char buffer[],
 /**
  * write_number - prints a string
  * @is_negative: arg list
- * @ind: char types.
+ * @i: array index
  * @buffer: array to handle print
- * @flags: active flags
- * @width: width
- * @precision: precis
+ * @flags: flags
+ * @width: field width
+ * @precision: precision
  * @size: size modifier
  *
  * Return: num of printed chars

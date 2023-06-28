@@ -9,7 +9,7 @@
  * @precision: precision
  * @size: size modifier
  *
- * Return: printed chars
+ * Return: num of printed chars
  */
 
 int print_percent(va_list types, char buffer[],

@@ -5,12 +5,12 @@
  * non-printable chars
  * @types: arg list
  * @buffer: array
- * @flags: active flags
- * @width: width specifier
- * @precision: precision specifier
- * @size: size specifier
+ * @flags: flags
+ * @width: field width
+ * @precision: precision
+ * @size: size modifier
  *
- * Return: printed chars
+ * Return: num of printed chars
  */
 
 int print_non_printable(va_list types, char buffer[],
@@ -64,7 +64,7 @@ int is_printable(char c)
  * @i: index at which to start appending
  * @ascii_code: ASCII CODE
  *
- * Return: Always 3
+ * Return: always 3 on success
  */
 
 int append_hexa_code(char ascii_code, char buffer[], int i)

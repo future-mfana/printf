@@ -4,7 +4,7 @@
  * convert_size_number - converts a number to
  * a specified size
  * @num: number to be converted
- * @size: number indicating type to be converted
+ * @size: size modifier
  *
  * Return: converted value of num
  */

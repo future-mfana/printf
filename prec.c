@@ -3,7 +3,7 @@
 
 /**
  * get_precision - calculates the printing precision
- * @format: format  format specifer
+ * @format: format specifer
  * @i: list of args to be printed
  * @list: list of args
  *
